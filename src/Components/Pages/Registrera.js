@@ -13,15 +13,14 @@ import courseContext from "../Contexts/CourseContext";
 import RegisteredCoursesContext from "../Contexts/RegistreredCourses";
 
 export default function Registrera() {
-
-    //UseStates
+  //UseStates
   const [courseTitle, setCourseTitle] = useState("");
 
-
-    //Kurskontext
+  //Kurskontext
   const courses = useContext(courseContext);
-  const { registerCourse, isCourseRegistered } = useContext(RegisteredCoursesContext);
-
+  const { registerCourse, isCourseRegistered } = useContext(
+    RegisteredCoursesContext
+  );
 
   //Hämta kurstitel
   const handleChange = (event) => {
@@ -38,16 +37,12 @@ export default function Registrera() {
 
   const showAlert = isCourseRegistered(courseTitle);
 
-
-
   return (
     <>
-
-
       <Container maxWidth="sm" style={{ marginTop: "40px" }}>
-        <h1 style={{ marginTop: "40px", marginBottom: '30px' }}>
-        Registrera dig här!
-      </h1>
+        <h1 style={{ marginTop: "40px", marginBottom: "30px" }}>
+          Registrera dig här!
+        </h1>
         <Stack spacing={2} direction="column">
           <FormControl fullWidth>
             <InputLabel id="Kursnamn">Kursnamn</InputLabel>
@@ -71,7 +66,7 @@ export default function Registrera() {
             Registrera
           </Button>
           {showAlert && (
-              <Alert severity="success">Kursen är registrerad.</Alert>
+            <Alert severity="success">Kursen är registrerad.</Alert>
           )}
         </Stack>
       </Container>
